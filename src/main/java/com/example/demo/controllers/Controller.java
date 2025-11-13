@@ -7,8 +7,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class Controller {
     @GetMapping("/")
     public String home() {
-        // сначала пробуем конкретную переменную INSTANCE (установим её в docker-compose),
-        // иначе возвращаем HOSTNAME (container id)
         String instance = System.getenv("INSTANCE");
         if (instance == null || instance.isBlank()) {
             instance = System.getenv("HOSTNAME");
